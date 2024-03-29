@@ -10,9 +10,11 @@ RUN git clone https://github.com/ioanat94/burgrrr.git
 COPY package*.json ./
 
 # Install application dependencies
-RUN npm install npm@latest -g
+RUN npm install -g npm@8.1.2
 RUN npm install
-RUN npm run dev
+RUN mkdir pages
+
+
 # Copy the rest of the application files to the container
 COPY . .
 
@@ -20,4 +22,4 @@ COPY . .
 EXPOSE 3000
 
 # Define the command to start your application
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
